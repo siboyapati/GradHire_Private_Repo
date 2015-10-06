@@ -1,4 +1,4 @@
-angular.module('socially',['angular-meteor', 'ui.router', 'angularUtils.directives.dirPagination']);
+angular.module('socially',['angular-meteor', 'ui.router', 'textAngular','angularUtils.directives.dirPagination']);
 
 function onReady() {
   angular.bootstrap(document, ['socially']);

@@ -1,0 +1,113 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Post New Job</h4>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-info">
+            <i class="fa fa-exclamation-triangle fa-2x pull-left"></i> <code>This job board is specifically for jobs
+            using <a href="http://www.meteor.com/">Meteor</a>. Please do not post unrelated jobs here.</code>
+        </div>
+        <form class="form-horizontal" role="form" novalidate>
+            <fieldset>
+                <!-- Form Name -->
+                <!--<legend>Address Details</legend>-->
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="jobTitle">Job Title</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" id="jobTitle" placeholder="Title displayed for your listing."
+                               class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="company">Company</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" id="company" placeholder="Name of the hiring company." class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="url">URL</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" id="url" placeholder="External URL of job posting." class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="expLevel">Experience Level</label>
+
+                    <div class="col-sm-10">
+                        <select id="expLevel" name="expLevel">
+                            <option value="internship">Intership</option>
+                            <option value="entryLevel">Full Time(Entry Level)</option>
+                            <option value="entryLevel">Full Time(Experienced)</option>
+                        </select>
+                        <!--<input type="text" id="jobType" placeholder="Job Type" class="form-control">-->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="contactInfo">Contact Info</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" id="contactInfo" placeholder="Email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="city">City</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" id="city" placeholder="City" class="form-control">
+                    </div>
+                    <label class="col-sm-2 control-label" for="state">State</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" id="state" placeholder="State" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Job Description</label>
+
+                    <div class="col-sm-10">
+                        <text-angular name="htmlcontent" id="jobDescription" ng-model="jobDescription">
+                        </text-angular>
+                    </div>
+                </div>
+
+
+                <!-- Text input-->
+
+
+
+            </fieldset>
+        </form>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="#" class="btn btn-default">Go Back</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
