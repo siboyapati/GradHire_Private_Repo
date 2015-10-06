@@ -19,6 +19,14 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
         templateUrl: 'client/parties/views/parties-list.ng.html',
         controller: 'PartiesListCtrl'
       })
+      .state('Employer', {
+        url: '/employer',
+        templateUrl: 'client/parties/views/employer.ng.html',
+        controller: 'EmployerCtrl'
+      })
+
+
+
       .state('partyDetails', {
         url: '/parties/:partyId',
         templateUrl: 'client/parties/views/party-details.ng.html',
