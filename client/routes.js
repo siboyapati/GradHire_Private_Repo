@@ -15,7 +15,7 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
 
     $stateProvider
       .state('parties', {
-        url: '/parties',
+        url: '/home',
         templateUrl: 'client/parties/views/parties-list.ng.html',
         controller: 'PartiesListCtrl'
       })
@@ -51,5 +51,5 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
         }
       });
 
-    $urlRouterProvider.otherwise("/parties");
+    $urlRouterProvider.otherwise("/home");
   }]);

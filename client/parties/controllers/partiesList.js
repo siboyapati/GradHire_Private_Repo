@@ -1,6 +1,16 @@
 angular.module("socially").controller("PartiesListCtrl", ['$scope', '$meteor', '$rootScope',
   function($scope, $meteor, $rootScope){
 
+
+    $scope.jobs = $meteor.collection(Jobs);
+    $scope.$meteorSubscribe('jobs');
+
+
+
+    $scope.joblist = $meteor.collection(function() {
+      return Jobs.find({});
+    });
+
     $scope.page = 1;
     $scope.perPage = 3;
     $scope.sort = { name: 1 };

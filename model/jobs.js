@@ -1,3 +1,2 @@
-/**
- * Created by sboyapati on 10/7/15.
- */
+
+Jobs = new Mongo.Collection("jobs");

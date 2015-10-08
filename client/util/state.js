@@ -2,8 +2,6 @@
  * Created by sboyapati on 10/6/15.
  */
 angular.module("socially").value('constants', {
-
-
     USStates: [
         "Other",
         "International",
@@ -108,11 +106,6 @@ angular.module("socially").value('constants', {
         //"West Virginia":WV,
         //"Wisconsin":WI,
         //"Wyoming":WY,
-
-
-
-
-
     })
 
 

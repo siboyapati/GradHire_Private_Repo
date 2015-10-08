@@ -1,3 +1,73 @@
+<!--<form action="post">-->
+<!--{{jobs[0].job}}-->
+
+<!--</form>-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <section id="jobsRecent">
+
+        <div class="row">
+          <div class="col-sm-4">
+            <h2>Recent Jobs</h2>
+          </div>
+        </div>
+
+
+
+        <div ng-repeat="job in jobs">
+          <div class="panel panel-default">
+            <div class="panel-body">
+
+              <div class="row">
+                <div class="col-sm-9">
+                  <a href="#">{{job.job.jobTitle}} @ {{job.job.company}}</a>
+                </div>
+                <div class="col-sm-3 text-right">
+                <span class="label label-default">
+                  <i class="fa fa-globe">
+                    {{job.job.expLevel}}
+                  </i>
+                </span>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <i class="fa fa-calendar"></i>
+                  {{job.createdAt | date:'MM/dd/yyyy'}}
+
+                </div>
+                <div class="col-sm-6 text-right">
+                  <i class="fa fa-map-marker"></i>
+                  {{job.job.jobCity}} -
+                  {{job.job.jobState}}
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--
+
 <form ng-show="$root.currentUser">
   <label>Name</label>
   <input ng-model="newParty.name">
@@ -8,6 +78,11 @@
   <button ng-click="newParty.owner=$root.currentUser._id; parties.push(newParty)">Add</button>
   <button ng-click="removeAll()">Remove All</button>
 </form>
+
+
+
+
+
 <div ng-hide="$root.currentUser || $root.loggingIn">
   Log in to create a party!
 </div>
@@ -63,4 +138,4 @@
     <p><small>Posted by {{ creator(party) | displayName }}</small></p>
   </li>
 </ul>
-<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>-->
