@@ -16,3 +16,7 @@ a {
 #content-wrapper a:not(.btn):visited {
     color: #777777;
 }
+
+table{
+    color: #777777;
+}
