@@ -1,5 +1,7 @@
 Accounts.ui.config({
+    passwordSignupFields:"USERNAME_AND_EMAIL_CONFIRM",
     requestPermissions: {},
+
     extraSignupFields: [{
         fieldName: 'first-name',
         fieldLabel: 'First name',
@@ -67,3 +69,5 @@ Accounts.ui.config({
         }
     }]
 });
+
+

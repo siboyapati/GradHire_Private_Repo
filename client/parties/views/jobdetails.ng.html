@@ -1,7 +1,4 @@
 
-
-
-
 <div class="row">
     <div class="col-sm-12">
         <div class="panel-default panel">
@@ -37,8 +34,9 @@
                         <i class="fa fa-calendar"></i> Posted on {{ jobs.createdAt | date:'MM/dd/yyyy'}}
                     </div>
                     <div class="col-sm-9">
-                        <hr/>
-                        <div style="color:#777777;" ng-bind-html="jobs.job.jobDescription | sanitize"></div>
+
+                        <div ng-bind-html="jobs.job.jobDescription | sanitize"></div>
+
                     </div>
                 </div>
             </div>
