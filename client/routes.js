@@ -5,14 +5,25 @@ angular.module("socially").run(['$rootScope', '$state', function ($rootScope, $s
         if (error === 'AUTH_REQUIRED') {
             $state.go('parties');
         }
+        switch(error) {
+            case "AUTH_REQUIRED":
+                $state.go('logIn');
+                break;
+            case "FORBIDDEN":
+                $state.go('parties');
+                break;
+            case "UNAUTHORIZED":
+                $state.go('unauthorized');
+                break;
+            default:
+                $state.go('internal-client-error');
+        }
     });
 }]);
 
 angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     function ($urlRouterProvider, $stateProvider, $locationProvider) {
-
         $locationProvider.html5Mode(true);
-
         $stateProvider
             .state('parties', {
                 url: '/home',
@@ -47,9 +58,20 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
             .state('editjobdetails', {
                 url: '/editjobdetails/:jobId',
                 templateUrl: 'client/parties/views/editjobdetails.ng.html',
-                controller: 'EditJobDetailsCtrl'
-            })
+                controller: 'EditJobDetailsCtrl',
+                resolve: {
+                    "currentUser": ["$meteor", function ($meteor) {
+                        return $meteor.requireValidUser(function(user){
+                            if(user.profile && user.profile.isAdmin){
+                                return 'FORBIDDEN';
+                            }else{
+                                return false;
+                            }
 
+                        });
+                    }]
+                }
+            })
             .state('partyDetails', {
                 url: '/parties/:partyId',
                 templateUrl: 'client/parties/views/party-details.ng.html',
@@ -63,3 +85,6 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
 
         $urlRouterProvider.otherwise("/home");
     }]);
+
+
+
