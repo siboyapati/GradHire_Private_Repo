@@ -3,6 +3,7 @@ body{
     font-size: 15px;
     line-height: 1.42857143;
     color: #777777;
+    padding-top: 70px;
 }
 
 a {
@@ -24,3 +25,36 @@ table{
 h6 {
     color: #777777;
 }
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #de4f4f;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus {
+     color: #de4f4f;
+     background-color: transparent;
+ }
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #de4f4f;
+    background-color: transparent;
+}
+
+
+.navbar {
+    background-color:#36373E;
+    border-color: #36373E;
+    background-image: none;
+    opacity:.888;
+    font-weight: 500;
+}
+

@@ -3,7 +3,6 @@
     <div class="col-sm-12">
         <div class="panel-default panel">
             <div class="panel-body">
-
                 <div class="row">
                     <div class="col-sm-12">
                         <h2>{{jobs.job.jobTitle}}</h2>
@@ -29,17 +28,40 @@
                         <span class="label label-success"><i class="fa fa-globe"></i> Remote</span>
                         <span class="label label-default"><i class="fa fa-clock-o"></i> Hourly Contract</span>
                         <hr>
-                        <i class="fa fa-envelope"></i> {{jobs.job.postResumeEmail}}
-                        <hr>
                         <i class="fa fa-calendar"></i> Posted on {{ jobs.createdAt | date:'MM/dd/yyyy'}}
+                        <hr>
+                        <div ng-if="jobs.job.postResumeEmail">
+                            <div>
+                                Apply for this job
+                            </div>
+                            <i class="fa fa-envelope"></i> {{jobs.job.postResumeEmail}}
+                        </div>
+                        <div>
+                            <button type="submit"  class="btn btn-primary">
+                                <i class="fa fa-floppy-o"></i> Apply on company website
+                            </button>
+                        </div>
+                        <hr/>
+
                     </div>
                     <div class="col-sm-9">
-
                         <div ng-bind-html="jobs.job.jobDescription | sanitize"></div>
-
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="admin == true">
+    <div class="col-sm-12">
+        <div class="pull-left">
+            <button type="submit" ng-click="editJob(jobs._id)" class="btn btn-default">
+                <i class="fa fa-pencil-square-o"></i> Edit
+            </button>
+            <button type="submit"  ng-click="deleteJob(jobs._id)" class="btn btn-danger">
+                <i class="fa fa-times"></i> Delete
+            </button>
         </div>
     </div>
 </div>

@@ -15,20 +15,13 @@
           </div>
         </div>
 
-
-
-        <div ng-repeat="job in jobs">
+        <div ng-repeat="job in joblist">
           <div class="panel panel-default">
             <div class="panel-body">
 
               <div class="row">
                 <div class="col-sm-9">
                   <a href="/jobdetails/{{job._id}}">{{job.job.jobTitle}} @ {{job.job.company}}</a>
-
-
-                  <!--<a href="/parties/{{party._id}}">{{party.name}}</a>-->
-
-
                 </div>
                 <div class="col-sm-3 text-right">
                 <span class="label label-default">

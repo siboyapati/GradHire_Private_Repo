@@ -1,4 +1,4 @@
-angular.module("socially").controller("PartiesListCtrl", ['$scope', '$meteor', '$rootScope',
+angular.module("socially").controller("LandingPageCtrl", ['$scope', '$meteor', '$rootScope',
   function($scope, $meteor, $rootScope){
 
 
@@ -7,8 +7,9 @@ angular.module("socially").controller("PartiesListCtrl", ['$scope', '$meteor', '
 
 
 
+
     $scope.joblist = $meteor.collection(function() {
-      return Jobs.find({});
+      return Jobs.find({},{sort:{createdAt: -1}});
     });
 
     $scope.page = 1;
@@ -16,7 +17,21 @@ angular.module("socially").controller("PartiesListCtrl", ['$scope', '$meteor', '
     $scope.sort = { name: 1 };
     $scope.orderProperty = '1';
 
-    $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
+    $scope.users = $meteor.collection(Meteor.users, false).subscribe('users')
+
+    $scope.$meteorSubscribe("users").then(function(sub){
+     var _userObject =Meteor.users.findOne(Meteor.userId());
+      $rootScope.admin = false;
+      if(_userObject){
+        $rootScope.userProfile =_userObject.profile;
+        if(_userObject.profile && _userObject.profile.isAdmin){
+          $rootScope.admin=true;
+        }
+      }
+
+      // Now $rootScope.currentUser should be defined
+    });
+
 
     $scope.parties = $meteor.collection(function() {
       return Parties.find({}, {
