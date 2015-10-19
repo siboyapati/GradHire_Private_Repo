@@ -23,7 +23,13 @@ angular.module("socially").run(['$rootScope', '$state', function ($rootScope, $s
 
 angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     function ($urlRouterProvider, $stateProvider, $locationProvider) {
-        $locationProvider.html5Mode(true);
+       // $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+
+
         $stateProvider
             .state('home', {
                 url: '/home',
