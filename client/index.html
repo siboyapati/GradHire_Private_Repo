@@ -30,12 +30,13 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <!--<li class="active"><a href="/employer">Employers login</a></li>-->
+        {{> loginButtons}} <!-- here -->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        {{> loginButtons}} <!-- here -->
+
         <li>
-          <a href="/PostNewJob" class="btn">Post a job</a>
+          <a href="/PostNewJob" class="btn btn-danger with-top-nav list-front">Post a job</a>
         </li>
 
       </ul>
