@@ -15,7 +15,15 @@ angular.module("socially").controller("PostNewJobCtrl", ['$scope', '$meteor', '$
         //Methods
 
         $scope.addJob = function (job) {
-            $meteor.call('addJob', job);
+            $meteor.call('addJob', job).then(
+                function(data){
+                    console.log('success inviting', data);
+                    sAlert.close('warningThatWeWantToCloseLater');
+                },
+                function(error){
+                    console.log('success inviting', data);
+                }
+            )
         };
 
 

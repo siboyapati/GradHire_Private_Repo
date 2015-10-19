@@ -1,4 +1,4 @@
-angular.module("socially").controller("LandingPageCtrl", ['$scope', '$meteor', '$rootScope',
+angular.module("socially").controller("homeCtrl", ['$scope', '$meteor', '$rootScope',
   function($scope, $meteor, $rootScope){
 
 

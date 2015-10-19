@@ -3,14 +3,14 @@ angular.module("socially").run(['$rootScope', '$state', function ($rootScope, $s
         // We can catch the error thrown when the $requireUser promise is rejected
         // and redirect the user back to the main page
         if (error === 'AUTH_REQUIRED') {
-            $state.go('parties');
+            $state.go('home');
         }
         switch(error) {
             case "AUTH_REQUIRED":
                 $state.go('logIn');
                 break;
             case "FORBIDDEN":
-                $state.go('parties');
+                $state.go('home');
                 break;
             case "UNAUTHORIZED":
                 $state.go('unauthorized');
@@ -25,10 +25,10 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
     function ($urlRouterProvider, $stateProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
         $stateProvider
-            .state('parties', {
+            .state('home', {
                 url: '/home',
-                templateUrl: 'client/parties/views/landingpage.ng.html',
-                controller: 'LandingPageCtrl'
+                templateUrl: 'client/parties/views/home.ng.html',
+                controller: 'homeCtrl'
             })
             .state('Employer', {
                 url: '/employer',

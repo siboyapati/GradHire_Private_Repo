@@ -1,67 +1,93 @@
-<!--<form action="post">-->
-<!--{{jobs[0].job}}-->
-
-<!--</form>-->
-
-
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <section id="jobsRecent">
-
-        <div class="row">
-          <div class="col-sm-4">
-            <h2>Recent Jobs</h2>
-          </div>
-        </div>
-
-        <div ng-repeat="job in joblist">
-          <div class="panel panel-default">
-            <div class="panel-body">
-
-              <div class="row">
-                <div class="col-sm-9">
-                  <a href="/jobdetails/{{job._id}}">{{job.job.jobTitle}} @ {{job.job.company}}</a>
-                </div>
-                <div class="col-sm-3 text-right">
-                <span class="label label-default">
-                  <i class="fa fa-globe">
-                    {{job.job.expLevel}}
-                  </i>
-                </span>
-
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-6">
-                  <i class="fa fa-calendar"></i>
-                  {{job.createdAt | date:'MM/dd/yyyy'}}
-
-                </div>
-                <div class="col-sm-6 text-right">
-                  <i class="fa fa-map-marker"></i>
-                  {{job.job.jobCity}} -
-                  {{job.job.jobState}}
-
-                </div>
-              </div>
-
-
+    <div class="jumbotron">
+        <div class="text-center container-fluid">
+            <div class="row">
+                <p>
+                    The premier job board and developer community space specifically for <a
+                        href="http://www.meteor.com/">Meteor</a>.
+                </p>
             </div>
-          </div>
+
+
+            <div class="row">
+                <br>
+                <iframe src="//platform.twitter.com/widgets/follow_button.html?screen_name=GradHire&amp;size=l&amp;show_count=false"
+                        style="width: 185px; height: 28px;" allowtransparency="true" frameborder="0" scrolling="no">
+                </iframe>
+                <br><br>
+            </div>
+
+
+            <div class="row">
+                <p>
+                    15 Minutes Could Get You 15 Job Offers from Top Tech Companies
+                </p>
+
+                <p>
+                    Salaries from $85,000 to $250,000
+                </p>
+            </div>
         </div>
-      </section>
-
-
     </div>
-  </div>
 </div>
 
 
 
 
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <section id="jobsRecent">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>Recent Jobs</h2>
+                    </div>
+                </div>
+
+                <div ng-repeat="job in joblist">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <a href="/jobdetails/{{job._id}}">{{job.job.jobTitle}} @ {{job.job.company}}</a>
+                                </div>
+                                <div class="col-sm-3 text-right">
+                <span class="label label-default">
+                  <i class="fa fa-globe">
+                      {{job.job.expLevel}}
+                  </i>
+                </span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <i class="fa fa-calendar"></i>
+                                    {{job.createdAt | date:'MM/dd/yyyy'}}
+
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <i class="fa fa-map-marker"></i>
+                                    {{job.job.jobCity}} -
+                                    {{job.job.jobState}}
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+</div>
 
 
 <!--

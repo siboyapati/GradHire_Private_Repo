@@ -1,0 +1,14 @@
+{
+  "public" : {
+    "ga": {
+      "id":"GA ID"
+    },
+    "uploadcare":{
+      "publickey":"Upload Care Public Key"
+    }
+  },
+  "kadira": {
+     "appId": "Kadira App ID",
+     "appSecret": "Kadira App Secret"
+  }
+}

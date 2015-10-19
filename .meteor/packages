@@ -20,7 +20,6 @@ angularui:angular-ui-router
 accounts-password
 urigo:angular-blaze-template
 
-angularutils:pagination
 tmeasday:publish-counts
 email
 twbs:bootstrap
@@ -28,3 +27,4 @@ stylus
 ian:accounts-ui-bootstrap-3
 ian:bootstrap-3-theme
 fortawesome:fontawesome
+juliancwirko:s-alert-flip

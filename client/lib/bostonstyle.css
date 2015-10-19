@@ -3,7 +3,7 @@ body{
     font-size: 15px;
     line-height: 1.42857143;
     color: #777777;
-    padding-top: 70px;
+    /*padding-top: 70px;*/
 }
 
 a {
@@ -34,15 +34,15 @@ h6 {
     color: #fff;
 }
 
-.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-    color: #de4f4f;
-    background-color: transparent;
-}
+/*.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {*/
+    /*color: #de4f4f;*/
+    /*background-color: transparent;*/
+/*}*/
 
-.navbar-inverse .navbar-nav > li > a:focus {
-     color: #de4f4f;
-     background-color: transparent;
- }
+/*.navbar-inverse .navbar-nav > li > a:focus {*/
+     /*color: #de4f4f;*/
+     /*background-color: transparent;*/
+ /*}*/
 
 .navbar-inverse .navbar-nav > li > a:hover {
     color: #de4f4f;
@@ -54,7 +54,16 @@ h6 {
     background-color:#36373E;
     border-color: #36373E;
     background-image: none;
-    opacity:.888;
+    opacity:1;
     font-weight: 500;
+}
+
+.text-medium{
+    font-weight: 500 !important;
+}
+
+.jumbotron {
+    background-color: #36373E;
+    color: white;
 }
 
