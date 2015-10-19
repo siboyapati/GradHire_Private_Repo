@@ -1,0 +1,46 @@
+<head>
+  <title>GradHire.IO - Job board for new grads</title>
+  <meta name="description" content="GradHire is a job board and community space for grads who are looking for a
+  full time or internship opportunities.  This site provides a complete listing of positions for grads
+  , as well as to profiles of new grads for hire.">
+  <meta name="keywords" content="GradHire,Jobs,Developers,Internship,Tech,Full time,Software,Engineering, tech jobs">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <base href="/">
+</head>
+<body>
+
+
+<!--<nav class="navbar navbar-inverse navbar-fixed-top">-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">Grad Hire</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li class="active"><a href="/employer">Employers login</a></li>-->
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        {{> loginButtons}} <!-- here -->
+        <li>
+          <a href="/PostNewJob" class="btn">Post a job</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div ui-view></div>
+</body>
