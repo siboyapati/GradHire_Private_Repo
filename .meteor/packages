@@ -24,6 +24,7 @@ tmeasday:publish-counts
 email
 twbs:bootstrap
 stylus
-#ian:accounts-ui-bootstrap-3
-#ian:bootstrap-3-theme
+ian:accounts-ui-bootstrap-3
+ian:bootstrap-3-theme
 fortawesome:fontawesome
+
