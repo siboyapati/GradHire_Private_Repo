@@ -23,13 +23,7 @@ angular.module("socially").run(['$rootScope', '$state', function ($rootScope, $s
 
 angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     function ($urlRouterProvider, $stateProvider, $locationProvider) {
-       // $locationProvider.html5Mode(true);
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
-
-
+       $locationProvider.html5Mode(true);
         $stateProvider
             .state('home', {
                 url: '/home',
@@ -69,9 +63,11 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
                     "currentUser": ["$meteor", function ($meteor) {
                         return $meteor.requireValidUser(function(user){
                             if(user.profile && user.profile.isAdmin){
-                                return 'FORBIDDEN';
+                                return true;
+                                //return 'FORBIDDEN';
                             }else{
-                                return false;
+                                return 'FORBIDDEN';
+                                //return false;
                             }
 
                         });

@@ -25,6 +25,12 @@ angular.module("socially").controller("JobDetailsCtrl", ['$scope','$window', '$s
             }
         }
 
+        $scope.opetnExternWindow =function(url){
+            debugger;
+            $window.open(url,'_blank');
+
+        }
+
         $scope.editJob=function(){
             $window.location.href = '/editjobdetails/'+$stateParams.jobId;
         }
