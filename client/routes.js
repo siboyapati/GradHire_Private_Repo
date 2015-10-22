@@ -32,8 +32,11 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
             })
             .state('Employer', {
                 url: '/employer',
-                templateUrl: 'client/parties/views/employer.ng.html',
-                controller: 'EmployerCtrl'
+                templateUrl: 'client/parties/views/alljobs.ng.html'
+            })
+            .state('AllJobs', {
+                url: '/jobs',
+                templateUrl: 'client/parties/views/alljobs.ng.html'
             })
 
             .state('PostNewJob', {
