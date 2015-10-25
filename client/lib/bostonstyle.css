@@ -34,6 +34,36 @@ h6 {
     color: #fff;
 }
 
+
+.label-marigin{
+    margin-right: 5px;
+}
+
+
+#search {
+    position: relative;
+    font-size: 18px;
+    padding-top: 40px;
+    margin: -20px auto 0px;
+}
+
+
+
+h2.headline {
+    font-weight: 800;
+    font-size: 58px;
+    line-height: .85;
+    text-transform: uppercase;
+    color: #FFF;
+    margin-bottom: 22px;
+    margin-top: 64px;
+}
+
+h3.tagline {
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0,0,0,.5);
+}
 /*.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {*/
     /*color: #de4f4f;*/
     /*background-color: transparent;*/
@@ -67,7 +97,10 @@ h6 {
     color: white;
 }
 
-
+.form-group.required .control-label:after {
+    content:"*";
+    color:red;
+}
 
 
 
@@ -242,4 +275,28 @@ h6 {
 .card-header-container {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+}
+
+
+.filterCheckBox {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.pop-input-wrapper{
+    font-size: 13px;
+}
+
+.pop-input-wrapper label{
+    font-weight: normal;
+}
+
+
+.panel2 {
+    margin-bottom: 10px;
+    background-color: #fff;
+    /* border: 1px solid transparent; */
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }

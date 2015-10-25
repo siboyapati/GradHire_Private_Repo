@@ -13,7 +13,7 @@
                         <div class="col-sm-4">
                             <div>
                                 <i class="fa fa-building"></i>
-                                {{jobs.job.company}}
+                                {{jobs.job.companyName}}
                             </div>
                             <div>
                                 <i class="fa fa-map-marker"></i>
@@ -34,24 +34,23 @@
                         <div class="col-sm-3">
                             <hr/>
 
-                            <span class="label label-success"><i class="fa fa-globe"></i> {{jobs.job.expLevel}}</span>
-                            <span class="label label-default"><i class="fa fa-clock-o"></i> Hourly Contract</span>
+                            <span class="label label-success"><i class="fa fa-globe"></i>{{jobs.job.primaryRole}}</span>
+                            <span class="label label-default"><i class="fa fa-clock-o"></i>{{jobs.job.expLevel}}</span>
                             <hr/>
-
-
                             <i class="fa fa-calendar"></i> Posted on {{ jobs.createdAt | date:'MM/dd/yyyy'}}
-                            <hr>
                             <div ng-if="jobs.job.postResumeEmail">
+                                <hr>
                                 <div>
                                     Apply for this job
                                 </div>
                                 <i class="fa fa-envelope"></i> {{jobs.job.postResumeEmail}}
                             </div>
-                            <div>
-                                <a href="#"  ng-click="opetnExternWindow(jobs.job.jobPostingURL)" class="btn btn-primary">Apply on company website</a>
+                            <div ng-if="jobs.job.jobPostingURL">
+                                <a href="#" ng-click="opetnExternWindow(jobs.job.jobPostingURL)"
+                                   class="btn btn-primary">Apply on company website</a>
 
                                 <!--<button type="submit" class="btn btn-primary">-->
-                                    <!--<i class="fa fa-floppy-o"></i> Apply on company website-->
+                                <!--<i class="fa fa-floppy-o"></i> Apply on company website-->
                                 <!--</button>-->
                             </div>
                             <hr/>

@@ -1,34 +1,41 @@
-
-
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4>Post New Job</h4>
         </div>
         <div class="panel-body">
+
+
+            <div ng-show="!userIsLoggedIn" class="alert alert-danger" style="text-align: center">
+                <i class="fa fa-exclamation-triangle fa-2x pull-left"></i> Login to post the job.
+            </div>
+
+
             <div class="alert alert-info">
-                <i class="fa fa-exclamation-triangle fa-2x pull-left"></i> This job board is specifically for college grads
+                <i class="fa fa-exclamation-triangle fa-2x pull-left"></i> This job board is specifically for college
+                grads
                 who are looking for a full time / internship positions. Please do not post unrelated jobs here.
             </div>
-            <form class="form-horizontal" role="form" novalidate>
+
+
+            <form name="post" class="form-horizontal" role="form" novalidate>
                 <fieldset>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="jobTitle">Job Title</label>
+
+                    <div class="form-group required"
+                         ng-class="{ 'has-error' : post.companyName.$invalid && !post.companyName.$pristine }">
+                        <label class="col-sm-2 control-label" for="companyName">Company</label>
 
                         <div class="col-sm-10">
-                            <input type="text" id="jobTitle" ng-model="job.jobTitle"
-                                   placeholder="Title displayed for your listing."
-                                   class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="company">Company</label>
+                            <input type="text" id="companyName" ng-model="job.companyName" name="companyName"
+                                   placeholder="Name of the hiring company."
+                                   class="form-control" required>
 
-                        <div class="col-sm-10">
-                            <input type="text" id="company" ng-model="job.company" placeholder="Name of the hiring company."
-                                   class="form-control">
+                            <p ng-show="post.companyName.$invalid && !post.companyName.$pristine"
+                               class="help-block text-left">Company name is required</p>
+
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="urlCompany">Company URL</label>
 
@@ -37,62 +44,108 @@
                                    placeholder="http://www.microsoft.com/" class="form-control">
                         </div>
                     </div>
+
+
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="jobTitle">Job Title</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" id="jobTitle" ng-model="job.jobTitle"
+                                   placeholder="Title displayed for your listing."
+                                   class="form-control" required>
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="url">URL</label>
 
                         <div class="col-sm-10">
                             <input type="text" id="url" ng-model="job.jobPostingURL"
-                                   placeholder="External URL of job posting." class="form-control">
+                                   placeholder="External job posting URL." class="form-control">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-sm-6 " style="text-align: right">
                             <label class="control-label" for="staffing">
-                                <input  type="checkbox" ng-model="job.isStaffing" ng-true-value="'true'"
-                                        ng-false-value="'false'" id='staffing'>
+                                <input type="checkbox" ng-model="job.isStaffing" ng-true-value="'true'"
+                                       ng-false-value="'false'" id='staffing'>
                                 Check if your company is a staffing / temp agency.
                             </label>
                         </div>
                     </div>
-                    <div class="form-group">
+
+                    <div class="form-group required">
                         <label class="col-sm-2 control-label" for="expLevel">Experience Level</label>
 
                         <div class="col-sm-10">
-                            <select id="expLevel" class="form-control" ng-model="job.expLevel" name="expLevel">
-                                <option value="internship">Intership</option>
-                                <option value="entryLevel">Full Time(Entry Level)</option>
-                                <option value="entryLevel">Full Time(Experienced)</option>
+                            <select id="expLevel" class="form-control" ng-model="job.expLevel" name="expLevel" required>
+                                <option value="Internship">Intership</option>
+                                <option value="EntryLevel">Full Time(Entry Level)</option>
+                                <option value="Experienced">Full Time(Experienced)</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="contactInfo">Apply-to-email</label>
+
+
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="primaryRole">Primary Role</label>
 
                         <div class="col-sm-10">
-                            <input type="text" id="contactInfo" ng-model="job.postResumeEmail"
+                            <select id="primaryRole" class="form-control" ng-model="job.primaryRole" name="primaryRole"
+                                    required>
+                                <option value="SoftwareEngineering">Software Engineering</option>
+                                <option value="HardwareEngineering">Hardware Engineering</option>
+                                <option value="Designer">Designer(UI/UX/Visual Designer/User Researcher)</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="ProductManager">Product Manager</option>
+                                <option value="Operations">Operations(Finance/Accounting/Office Manager/H.R/Attorney)
+                                </option>
+                                <option value="Sales">Sales</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" ng-class="{ 'has-error': post.email.$invalid }">
+                        <label class="col-sm-2 control-label" for="applyToEmail">Apply-to-email</label>
+
+                        <div class="col-sm-10">
+                            <input type="email" id="applyToEmail" name="email" ng-model="job.applyToEmail"
                                    placeholder="Email (Optional)" class="form-control">
                         </div>
                     </div>
-                    <div class="form-group">
+
+
+                    <!--<div class="form-group" ng-class="{ 'has-error': userForm.email.$invalid }">-->
+                    <!--<input type="email" class="form-control" name="email" ng-model="user.email" required>-->
+                    <!--</div>-->
+
+
+                    <div class="form-group required">
                         <label class="col-sm-2 control-label" for="city">Job City</label>
 
                         <div class="col-sm-2">
-                            <input type="text" id="city" ng-model="job.jobCity" placeholder="City" class="form-control">
+                            <input type="text" id="city" ng-model="job.jobCity" placeholder="City" class="form-control"
+                                   required>
                         </div>
                         <label class="col-sm-2 control-label" for="state">Job State</label>
 
                         <div class="col-sm-2">
-                            <select ng-model='job.jobState'  class="form-control" id="state" ng-options='number for number in state'></select>
+                            <select ng-model='job.jobState' class="form-control" id="state"
+                                    ng-options='number for number in state' required></select>
                         </div>
 
-                        <label class="col-sm-2 control-label" for="postalCode">Job Postal Code</label>
+                        <label class="col-sm-2 control-label" for="postalCode" required>Job Postal Code</label>
 
                         <div class="col-sm-2">
-                            <input type="text" id="postalCode" ng-model="job.jobZip" placeholder="Postal/Zip code"
-                                   class="form-control">
+                            <input type="text" id="postalCode" ng-model="job.jobPostalCode"
+                                   placeholder="Postal/Zip code"
+                                   class="form-control" required>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group required">
                         <label class="col-sm-2 control-label">Job Description</label>
 
                         <div class="col-sm-10">
@@ -101,31 +154,35 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <legend></legend>
-                        <label class="col-sm-2 control-label"  for="contactName">Contact
+                        <label class="col-sm-2 control-label" for="contactName">Contact
                             Name</label>
 
                         <div class="col-sm-4">
-                            <input type="text" id="contactName" ng-model="job.personalContactName" placeholder="Name (Name will not be displayed)"
+                            <input type="text" id="contactName" ng-model="job.personalContactName"
+                                   placeholder="Name (Name will not be displayed)"
                                    class="form-control">
                         </div>
                         <label class="col-sm-2 control-label" for="contactEmail">Contact Email</label>
 
                         <div class="col-sm-4">
-                            <input type="text" id="contactEmail" ng-model="job.personalContactEmail"
+                            <input type="email" id="contactEmail" ng-model="job.personalContactEmail"
                                    placeholder="Email (Your user email address is not displayed)" class="form-control">
                         </div>
                     </div>
                 </fieldset>
+
+
+                <div class="panel-footer clearfix">
+                    <div class="pull-left">
+                        <button type="submit" ng-click="addJob(job)" ng-disabled="!post.$valid"
+                                class="btn btn-primary">
+                            <i class="fa fa-floppy-o"></i> Submit
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
-        <div class="panel-footer clearfix">
-            <div class="pull-left">
-                <button type="submit" ng-click="addJob(job)" class="btn btn-primary">
-                    <i class="fa fa-floppy-o"></i> Post
-                </button>
-            </div>
-        </div>
+
     </div>
 </div>
 

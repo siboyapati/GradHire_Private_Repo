@@ -27,3 +27,5 @@ stylus
 ian:accounts-ui-bootstrap-3
 fortawesome:fontawesome
 
+underscore
+angular:angular-material

@@ -1,7 +1,5 @@
-
-
-angular.module("socially").controller("PostNewJobCtrl", ['$scope', '$meteor', '$rootScope', "$injector",
-    function ($scope, $meteor, $rootScope, $injector) {
+angular.module("socially").controller("PostNewJobCtrl", ['$scope', '$meteor', '$rootScope', "$injector","$mdDialog",
+    function ($scope, $meteor, $rootScope, $injector ,$mdDialog) {
 
         //injection
         var constants = $injector.get('constants');
@@ -9,20 +7,40 @@ angular.module("socially").controller("PostNewJobCtrl", ['$scope', '$meteor', '$
 
         $scope.jobs = $meteor.collection(Jobs);
         $scope.$meteorSubscribe('jobs');
-        var x = Meteor.user();
 
+        $scope.userIsLoggedIn = false;
+        Deps.autorun(function (c) {
+            if(!Meteor.userId())
+            {
+                $scope.userIsLoggedIn = false;
+            }
+            else
+            {
+                $scope.userIsLoggedIn = true;
+            }
+        });
 
-        //Methods
 
         $scope.addJob = function (job) {
-            $meteor.call('addJob', job).then(
-                function(data){
+            if (job) {
+                $meteor.call('addJob', job).then(
+                    function (data) {
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .clickOutsideToClose(true)
+                                .title('Success')
+                                .content('Your job posting has been successfully submitted.')
+                                .ariaLabel('Left to right demo')
+                                .ok('Close')
 
-                },
-                function(error){
-                    console.log('success inviting', error);
-                }
-            )
+                        );
+                    },
+                    function (error) {
+                        console.log('success inviting', error);
+                    }
+                )
+            }
+
         };
 
 

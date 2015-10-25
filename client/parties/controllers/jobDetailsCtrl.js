@@ -2,8 +2,8 @@
  * Created by sboyapati on 10/5/15.
  */
 
-angular.module("socially").controller("JobDetailsCtrl", ['$scope','$window', '$stateParams', '$meteor', '$rootScope',
-    function ($scope,$window, $stateParams, $meteor, $rootScope) {
+angular.module("socially").controller("JobDetailsCtrl", ['$scope', '$window', '$stateParams', '$meteor', '$rootScope',
+    function ($scope, $window, $stateParams, $meteor, $rootScope) {
 
         var x = $stateParams.jobId;
 
@@ -25,17 +25,17 @@ angular.module("socially").controller("JobDetailsCtrl", ['$scope','$window', '$s
             }
         }
 
-        $scope.opetnExternWindow =function(url){
-
-            if (url.toUpperCase(url.substring(0, 7) != "HTTP://")){
-                url = "http://" + url;
+        $scope.opetnExternWindow = function (url) {
+            if (url) {
+                if (url.toUpperCase(url.substring(0, 7) != "HTTP://")) {
+                    url = "http://" + url;
+                }
+                $window.open(url, '_blank');
             }
-            debugger;
-            $window.open(url,'_blank');
         }
 
-        $scope.editJob=function(){
-            $window.location.href = '/editjobdetails/'+$stateParams.jobId;
+        $scope.editJob = function () {
+            $window.location.href = '/editjobdetails/' + $stateParams.jobId;
         }
 
 
