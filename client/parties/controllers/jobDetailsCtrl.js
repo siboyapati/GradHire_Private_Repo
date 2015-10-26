@@ -27,9 +27,12 @@ angular.module("socially").controller("JobDetailsCtrl", ['$scope', '$window', '$
 
         $scope.opetnExternWindow = function (url) {
             if (url) {
-                if (url.toUpperCase(url.substring(0, 7) != "HTTP://")) {
+                var _subString =url.substring(0,4);
+
+                if(_subString.toUpperCase() !== "HTTP"){
                     url = "http://" + url;
                 }
+
                 $window.open(url, '_blank');
             }
         }
