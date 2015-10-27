@@ -9,7 +9,7 @@ angular.module("socially").controller("homeCtrl", ['$scope', '$meteor', '$rootSc
 
 
     $scope.joblist = $meteor.collection(function() {
-      return Jobs.find({},{sort:{createdAt: -1}});
+      return Jobs.find({},{limit:10,sort:{createdAt: -1}});
     });
 
     $scope.page = 1;
