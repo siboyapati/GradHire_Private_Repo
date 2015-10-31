@@ -320,3 +320,8 @@ footer {
     background-color: #101010;;
 
 }
+
+
+.fb-comments, .fb-comments * {
+    width:100% !important;
+}

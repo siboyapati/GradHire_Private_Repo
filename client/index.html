@@ -18,15 +18,26 @@
         ga('send', 'pageview');
 
     </script>
-    <script>(function (d, s, id) {
+    <!--<script>(function (d, s, id) {-->
+        <!--var js, fjs = d.getElementsByTagName(s)[0];-->
+        <!--if (d.getElementById(id)) return;-->
+        <!--js = d.createElement(s);-->
+        <!--js.id = id;-->
+        <!--js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";-->
+        <!--fjs.parentNode.insertBefore(js, fjs);-->
+    <!--}(document, 'script', 'facebook-jssdk'));-->
+    <!--</script>-->
+
+    <!--<div id="fb-root"></div>-->
+
+    <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1669718013243829";
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 
     <meta name="description" content="GradHire.io is a job board and community space for grads who are looking for a
   full time or internship opportunities.  This site provides a complete listing of positions for grads
