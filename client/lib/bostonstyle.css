@@ -90,6 +90,7 @@ h3.tagline {
     background-image: none;
     opacity:1;
     font-weight: 500;
+    border-radius: 0px;
 }
 
 .text-medium{
