@@ -7,30 +7,25 @@
 
                 <h3 class="tagline">JOBS & INTERNSHIPS FOR COLLEGE STUDENTS</h3>
             </div>
-
-            <div class="fb-page" data-href="https://www.facebook.com/Gradhire.io" data-width="500" data-height="1200"
-                 data-small-header="true" data-adapt-container-width="false" data-hide-cover="false"
-                 data-show-facepile="true"
+            <!--Add Facebook Page Plugin-->
+            <div class="fb-page" data-href="https://www.facebook.com/gradhire.io" data-small-header="false"
+                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"
                  data-show-posts="false">
                 <div class="fb-xfbml-parse-ignore">
-                    <blockquote cite="https://www.facebook.com/Gradhire.io"><a
-                            href="https://www.facebook.com/Gradhire.io">GradHire.io</a>
+                    <blockquote cite="https://www.facebook.com/gradhire.io"><a href="https://www.facebook.com/gradhire.io">Facebook</a>
                     </blockquote>
                 </div>
             </div>
-            <!--<div class="row">-->
-            <!--<br>-->
-            <!--<iframe src="//platform.twitter.com/widgets/follow_button.html?screen_name=GradHire&amp;size=l&amp;show_count=false"-->
-            <!--style="align-content: center; width: 185px; height: 28px;" allowtransparency="true"-->
-            <!--frameborder="0" scrolling="no">-->
-            <!--</iframe>-->
-            <!--<br><br>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-            <!--<p>-->
-            <!--Over 3,000 companies are searching for students like you. Salaries ranging from $85,000 to $180,000-->
-            <!--</p>-->
-            <!--</div>-->
+            <div id="fb-root"></div>
+            <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1669718013243829";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
         </div>
     </div>
 </div>
@@ -102,13 +97,6 @@
         </div>
     </div>
 </div>
-
-<div class="container">
-    <div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/homepage"
-         data-numposts="5"></div>
-
-</div>
-
 
 
 <!--
@@ -184,3 +172,4 @@
   </li>
 </ul>
 <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>-->
+
