@@ -1,27 +1,8 @@
 angular.module("socially").controller("homeCtrl", ['$scope', '$meteor', '$rootScope',
     function ($scope, $meteor, $rootScope) {
 
+        $scope.joblist = $meteor.collection(Jobs, false).subscribe('top10jobs');
 
-        $scope.jobs = $meteor.collection(Jobs);
-        $scope.$meteorSubscribe('jobs');
-
-        $scope.facebook_init = function () {
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1669718013243829";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        }
-
-
-        $scope.joblist = $meteor.collection(function () {
-            return Jobs.find({}, {limit: 10, sort: {createdAt: -1}});
-        });
-
-        $scope.facebook_init();
 
         $scope.page = 1;
         $scope.perPage = 3;

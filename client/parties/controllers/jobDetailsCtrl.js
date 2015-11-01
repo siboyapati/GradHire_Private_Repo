@@ -5,7 +5,7 @@
 angular.module("socially").controller("JobDetailsCtrl", ['$scope', '$window', '$stateParams', '$meteor', '$rootScope',
     function ($scope, $window, $stateParams, $meteor, $rootScope) {
 
-        var x = $stateParams.jobId;
+
 
         $scope.jobs = $meteor.object(Jobs, $stateParams.jobId);
         $scope.$meteorSubscribe('jobs');
@@ -28,11 +28,9 @@ angular.module("socially").controller("JobDetailsCtrl", ['$scope', '$window', '$
         $scope.opetnExternWindow = function (url) {
             if (url) {
                 var _subString =url.substring(0,4);
-
                 if(_subString.toUpperCase() !== "HTTP"){
                     url = "http://" + url;
                 }
-
                 $window.open(url, '_blank');
             }
         }

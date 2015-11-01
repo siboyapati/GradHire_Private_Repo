@@ -1,14 +1,18 @@
 Meteor.publish("jobs", function () {
-    return Jobs.find({});
+    //return Jobs.find({});
+    return Jobs.find({}, {sort: {createdAt: -1}});
+});
+
+Meteor.publish("top10jobs", function () {
+    return Jobs.find({}, {limit: 5, sort: {createdAt: -1}});
 });
 
 
 Meteor.methods({
     addJob: function (job) {
         if (!Meteor.userId()) {
-            throw new Meteor.Error('not-authorized');
+            throw new Meteor.Error(503,'not-authorized');
         }
-
         Jobs.insert({
             job: job,
             isApproved: false,
@@ -26,6 +30,9 @@ Meteor.methods({
     },
 
     deleteJob: function (Id) {
+        if (!Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
         Jobs.remove(Id);
     },
     setChecked: function (taskId, setChecked) {
