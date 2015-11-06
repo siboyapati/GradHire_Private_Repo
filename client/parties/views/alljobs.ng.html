@@ -1,7 +1,7 @@
 <div class="container">
     <form role="form">
         <div class="row">
-            <div class="input-group input-group-lg col-md-11" style="padding-left: 28px;align-content: center">
+            <div class="input-group input-group-lg col-xs-11 col-md-11" style="padding-left: 28px;align-content: center">
                 <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
                 <input class="form-control" ng-model="searchText" type="text" placeholder="search">
             </div>
@@ -110,6 +110,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <uib-pagination direction-links="false"  ng-show="showPagination" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" items-per-page="itemsPerPage"></uib-pagination>
                                         </div>
                                     </div>
                                 </div>

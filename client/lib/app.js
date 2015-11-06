@@ -1,4 +1,4 @@
-angular.module('socially',['angular-meteor', 'ui.router', 'textAngular','ngMaterial']);
+angular.module('socially',['angular-meteor', 'ui.router', 'textAngular','ngMaterial','ui.bootstrap','ngAnimate']);
 
 function onReady() {
   angular.bootstrap(document, ['socially']);

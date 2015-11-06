@@ -20,13 +20,12 @@ angularui:angular-ui-router
 accounts-password
 urigo:angular-blaze-template
 
-tmeasday:publish-counts
+
 email
 twbs:bootstrap
 stylus
 ian:accounts-ui-bootstrap-3
 fortawesome:fontawesome
-
 underscore
 angular:angular-material
 jquery

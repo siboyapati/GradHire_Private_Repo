@@ -13,27 +13,47 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
         $scope.roles_selection=['SoftwareEngineering','HardwareEngineering','Operations','Sales','ProductManager','Designer'];
 
 
+        ///Angular bootstrap pagination.
+        $scope.viewby =5;
+        $scope.currentPage = 1;
+        $scope.itemsPerPage = $scope.viewby;
+        $scope.maxSize = 7;
+        $scope.showPagination=false;
 
+        $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+        };
+
+        $scope.pageChanged = function() {
+
+        };
         $scope.jobs = $meteor.object(Jobs, $stateParams.jobId);
         $scope.$meteorSubscribe('jobs');
-
-
         $scope.joblist = $meteor.collection(function () {
-            return Jobs.find({
+            var _jobs = Jobs.find({
                 "job.expLevel": {$in: $scope.getReactively('expLevel')},
                 "job.primaryRole": {$in: $scope.getReactively('roles_selection')}
-            }, {sort: {createdAt: -1}});
-            //return Jobs.find({ "job.expLevel": { $in: $scope.getReactively('expLevel') } }  ,{sort: {createdAt: -1}});
+            });
+            $scope.totalItems= _jobs.count();
 
-            //return Jobs.find({"job.expLevel":'entryLevel'}, {sort: {createdAt: -1}});
-            //db.users.find({"username" : "joe", "age" : 27})
+            if($scope.totalItems > $scope.viewby){
+                $scope.showPagination=true;
+            }else{
+                $scope.showPagination=false;
+            }
+
+            var data = Jobs.find({
+                "job.expLevel": {$in: $scope.getReactively('expLevel')},
+                "job.primaryRole": {$in: $scope.getReactively('roles_selection')}
+            }, {
+                limit:$scope.viewby,
+                skip: (parseInt($scope.getReactively('currentPage')) - 1) * $scope.viewby
+            })
+            return data;
         });
 
-
-
-
-
         $scope.toggle = function (item, list) {
+            $scope.currentPage = 1;
             var idx = list.indexOf(item);
             if (idx > -1) list.splice(idx, 1);
             else list.push(item);
@@ -51,13 +71,10 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
         $scope.roleFunc = function (item,list) {
             var x=item;
             var y =list;
-            debugger;
-
-
         }
 
         $scope.expLevelFunc = function () {
-
+            $scope.currentPage = 1;
             $scope.expLevel = ["Internship", "EntryLevel", "Experienced"];
 
             if (!$scope.checkboxes.EntryLevel) {
@@ -85,6 +102,5 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
             }
 
         }
-
 
     }]);
