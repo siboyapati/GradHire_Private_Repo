@@ -14,7 +14,7 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
 
 
         ///Angular bootstrap pagination.
-        $scope.viewby =3;
+        $scope.viewby =7;
         if(!$scope.currentPage){
             $scope.currentPage = 1;
         }
@@ -33,8 +33,18 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
 
         //$scope.jobs = $meteor.object(Jobs, $stateParams.jobId);
 
-         $meteor.subscribe('jobs');
-       // $scope.$meteorSubscribe('jobs');
+        // $meteor.subscribe('jobs');
+        $scope.$meteorSubscribe('jobs');
+
+        $meteor.subscribe('jobs').then(function(subscriptionHandle){
+
+            console.log('hello world');
+            // You can use the subscription handle to stop the subscription if you want
+            subscriptionHandle.stop();
+        });
+
+
+
 
         $scope.joblist = $meteor.collection(function () {
             var _jobs = Jobs.find({
