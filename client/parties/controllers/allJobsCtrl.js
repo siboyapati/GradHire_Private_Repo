@@ -34,48 +34,45 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
         //$scope.jobs = $meteor.object(Jobs, $stateParams.jobId);
 
         // $meteor.subscribe('jobs');
-        $scope.$meteorSubscribe('jobs');
-
+        //$scope.$meteorSubscribe('jobs');
+        $scope.joblist =null;
         $meteor.subscribe('jobs').then(function(subscriptionHandle){
+            $scope.joblist = $meteor.collection(function () {
+                var _jobs = Jobs.find({
+                    "job.expLevel": {$in: $scope.getReactively('expLevel')},
+                    "job.primaryRole": {$in: $scope.getReactively('roles_selection')}
+                });
+                $scope.totalItems= _jobs.count();
 
-            console.log('hello world');
-            // You can use the subscription handle to stop the subscription if you want
-            subscriptionHandle.stop();
+                if($scope.totalItems > $scope.viewby){
+                    $scope.showPagination=true;
+                    document.getElementById('paginationDiv').className='show';
+                }else{
+                    $scope.showPagination=false;
+                    document.getElementById('paginationDiv').className='hide';
+                }
+
+                if($scope.getReactively('totalItems') === 0){
+                    $scope.showPagination=false;
+                    document.getElementById('paginationDiv').className='hide';
+                }
+
+                return Jobs.find({
+                    "job.expLevel": {$in: $scope.getReactively('expLevel')},
+                    "job.primaryRole": {$in: $scope.getReactively('roles_selection')}
+                }, {
+                    limit:$scope.viewby,
+                    skip: (parseInt($scope.getReactively('currentPage')) - 1) * $scope.viewby
+                });
+
+            });
         });
 
 
 
 
-        $scope.joblist = $meteor.collection(function () {
-            var _jobs = Jobs.find({
-                "job.expLevel": {$in: $scope.getReactively('expLevel')},
-                "job.primaryRole": {$in: $scope.getReactively('roles_selection')}
-            });
-            $scope.totalItems= _jobs.count();
-
-            if($scope.totalItems > $scope.viewby){
-                $scope.showPagination=true;
-                document.getElementById('paginationDiv').className='show';
-            }else{
-                $scope.showPagination=false;
-                document.getElementById('paginationDiv').className='hide';
-            }
-
-            if($scope.getReactively('totalItems') === 0){
-                $scope.showPagination=false;
-                document.getElementById('paginationDiv').className='hide';
-            }
-
-            return Jobs.find({
-                "job.expLevel": {$in: $scope.getReactively('expLevel')},
-                "job.primaryRole": {$in: $scope.getReactively('roles_selection')}
-            }, {
-                limit:$scope.viewby,
-                skip: (parseInt($scope.getReactively('currentPage')) - 1) * $scope.viewby
-            });
 
 
-        });
 
         $scope.toggle = function (item, list) {
             $scope.currentPage = 1;
