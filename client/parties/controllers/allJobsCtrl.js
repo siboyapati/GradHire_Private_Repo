@@ -14,8 +14,11 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
 
 
         ///Angular bootstrap pagination.
-        $scope.viewby =8;
-        $scope.currentPage = 1;
+        $scope.viewby =3;
+        if(!$scope.currentPage){
+            $scope.currentPage = 1;
+        }
+
         $scope.itemsPerPage = $scope.viewby;
         $scope.maxSize = 7;
         $scope.showPagination=false;
@@ -27,8 +30,12 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
         $scope.pageChanged = function() {
 
         };
-        $scope.jobs = $meteor.object(Jobs, $stateParams.jobId);
-        $scope.$meteorSubscribe('jobs');
+
+        //$scope.jobs = $meteor.object(Jobs, $stateParams.jobId);
+
+         $meteor.subscribe('jobs');
+       // $scope.$meteorSubscribe('jobs');
+
         $scope.joblist = $meteor.collection(function () {
             var _jobs = Jobs.find({
                 "job.expLevel": {$in: $scope.getReactively('expLevel')},
@@ -49,14 +56,14 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
                 document.getElementById('paginationDiv').className='hide';
             }
 
-            var data = Jobs.find({
+            return Jobs.find({
                 "job.expLevel": {$in: $scope.getReactively('expLevel')},
                 "job.primaryRole": {$in: $scope.getReactively('roles_selection')}
             }, {
                 limit:$scope.viewby,
                 skip: (parseInt($scope.getReactively('currentPage')) - 1) * $scope.viewby
-            })
-            return data;
+            });
+
 
         });
 
