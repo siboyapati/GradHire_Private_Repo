@@ -14,7 +14,7 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
 
 
         ///Angular bootstrap pagination.
-        $scope.viewby =5;
+        $scope.viewby =8;
         $scope.currentPage = 1;
         $scope.itemsPerPage = $scope.viewby;
         $scope.maxSize = 7;
@@ -38,8 +38,15 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
 
             if($scope.totalItems > $scope.viewby){
                 $scope.showPagination=true;
+                document.getElementById('paginationDiv').className='show';
             }else{
                 $scope.showPagination=false;
+                document.getElementById('paginationDiv').className='hide';
+            }
+
+            if($scope.getReactively('totalItems') === 0){
+                $scope.showPagination=false;
+                document.getElementById('paginationDiv').className='hide';
             }
 
             var data = Jobs.find({
@@ -50,6 +57,7 @@ angular.module("socially").controller("AllJobsCtrl", ['$scope', '$window', '$sta
                 skip: (parseInt($scope.getReactively('currentPage')) - 1) * $scope.viewby
             })
             return data;
+
         });
 
         $scope.toggle = function (item, list) {
